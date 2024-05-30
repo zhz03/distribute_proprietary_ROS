@@ -1,7 +1,7 @@
 # Distribute Proprietary ROS Package
 
 - This is EN version
-- 你也可以选择[中文]()
+- 你也可以选择[中文](https://github.com/zhz03/distribute_proprietary_ROS/blob/dev/README_CN.md)
 
 ## 1 Why You Need Proprietary ROS Packages
 
@@ -80,7 +80,8 @@ cp -r ~/catkin_ws/devel/lib/your_package /path/to/distribution/
 
 Ensure your package includes `package.xml` and `CMakeLists.txt` for proper ROS integration, even if you are distributing only binaries.
 
-### Example `package.xml`
+**Example `package.xml`**
+
 ```xml
 <package format="2">
   <name>your_package</name>
@@ -94,7 +95,8 @@ Ensure your package includes `package.xml` and `CMakeLists.txt` for proper ROS i
 </package>
 ```
 
-### Example `CMakeLists.txt`
+**Example `CMakeLists.txt`**
+
 ```cmake
 cmake_minimum_required(VERSION 2.8.3)
 project(your_package)
@@ -143,7 +145,10 @@ roslaunch your_package your_launch_file.launch
 
 ## 4 Make and Deploy Python ROS  Proprietary Package
 
-### Step 1: Prepare Your ROS Workspace
+### 4.1 bin method
+
+#### Step 1: Prepare Your ROS Workspace
+
 Ensure your workspace is set up and all dependencies are met:
 ```bash
 cd ~/catkin_ws/src/your_package/scripts
@@ -153,7 +158,7 @@ Note:
 
 - `~/catkin_ws/src/your_package/scripts` is the path where you save your ros python source code.
 
-### Step 2: Use PyInstaller to Package Your Script
+#### Step 2: Use PyInstaller to Package Your Script
 
 Install PyInstaller:
 ```bash
@@ -175,7 +180,7 @@ What to generate:
   -n NAME, --name NAME  Name to assign to the bundled app and spec file (default: first script's basename)
 ```
 
-### Step 3: Distribute the Executable
+#### Step 3: Distribute the Executable
 
 Copy the generated executable from the `dist` directory to your distribution location:
 ```bash
@@ -212,11 +217,12 @@ Note:
   		└── your_bin_file2
   ```
 
-### Step 4: Create the Necessary ROS Files
+#### Step 4: Create the Necessary ROS Files
 
 Ensure your package includes `package.xml` and `setup.py` for proper ROS integration.
 
-### Example `package.xml`
+**Example `package.xml`**: 
+
 ```xml
 <package format="2">
   <name>your_package</name>
@@ -230,7 +236,8 @@ Ensure your package includes `package.xml` and `setup.py` for proper ROS integra
 </package>
 ```
 
-### Example `setup.py`
+**Example `setup.py`**
+
 ```python
 from distutils.core import setup
 from catkin_pkg.python_setup import generate_distutils_setup
@@ -243,14 +250,16 @@ d = generate_distutils_setup(
 setup(**d)
 ```
 
-### Step 5: Deploy the Package
+#### Step 5: Deploy the Package
+
 On the target system, place the executable and necessary ROS files in the appropriate directories. Ensure the environment is set up correctly:
 ```bash
 source /opt/ros/noetic/setup.bash
 source ~/catkin_ws/devel/setup.bash
 ```
 
-### Step 6: Run Your Node
+#### Step 6: Run Your Node
+
 Use `rosrun` or `roslaunch` to start your node:
 ```bash
 # you can try rosrun 
@@ -260,3 +269,9 @@ roslaunch your_package your_launch_file.launch
 ```
 
 By following these steps, you can distribute your ROS packages in a proprietary manner, protecting your intellectual property while still leveraging the power and flexibility of ROS.
+
+### 4.2 pyc method
+
+- English version please check [here](https://github.com/zhz03/distribute_proprietary_ROS/blob/main/example_code/python_example/target_code/my_rostopics/distribute_pyc.md)
+- 中文请点击[这里](https://github.com/zhz03/distribute_proprietary_ROS/blob/main/example_code/python_example/target_code/my_rostopics/pyc%E7%9A%84%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E5%88%86%E5%8F%91.md)
+

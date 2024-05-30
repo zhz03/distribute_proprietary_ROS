@@ -1,5 +1,8 @@
 # 分发专有的ROS软件包
 
+- 这个是中文版本
+- This is [English version](https://github.com/zhz03/distribute_proprietary_ROS/blob/main/README.md)
+
 ## 1 为什么您需要专有的ROS软件包
 
 专有的ROS（机器人操作系统）软件包在商业和敏感应用中提供了一系列的好处，尤其是在保护知识产权至关重要的情况下。通过分发专有的ROS软件包，您可以：
